@@ -8,9 +8,9 @@ CWARNS = -Wall -Wextra -pedantic \
         -Wwrite-strings \
         -Wcast-qual
 
-LUADIR = ..
+LUADIR = /home/roberto/prj/sw/oldlua/lua-5.1.2/src
 COPT = -O2 -DNDEBUG
-CFLAGS = $(CWARNS) -ansi -I$(LUADIR)/lua -shared -o lpeg.so
+CFLAGS = $(CWARNS) -ansi -I$(LUADIR) -shared -o lpeg.so
 CC = gcc
 
 lpeg.so: lpeg.c
@@ -22,5 +22,5 @@ deb:	lpeg.c
 opt:	lpeg.c	
 	$(CC) $(COPT) $(CFLAGS) lpeg.c; touch opt; rm -f deb
 
-test: test.lua lpeg.so
+test: test.lua re.lua lpeg.so
 	test.lua
