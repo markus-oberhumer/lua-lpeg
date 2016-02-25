@@ -363,6 +363,7 @@ static TTree *newtree (lua_State *L, int len) {
   lua_setuservalue(L, -3);
   lua_setmetatable(L, -2);
   p->code = NULL;  p->codesize = 0;
+  p->tree[0].key = 0;
   return p->tree;
 }
 
